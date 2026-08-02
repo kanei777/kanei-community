@@ -77,10 +77,6 @@
       gap:18px;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     header{
       position:sticky;
       top:0;
@@ -175,10 +171,6 @@
       font-weight:700;
     }
 
-    /* =========================
-       CONTAINER
-    ========================= */
-
     .container{
       width:100%;
       max-width:920px;
@@ -193,10 +185,6 @@
         padding:0 18px;
       }
     }
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero{
       position:relative;
@@ -296,10 +284,6 @@
       white-space:pre-line;
     }
 
-    /* =========================
-       FORM
-    ========================= */
-
     form{
       margin-top:18px;
       padding:8px 0 4px;
@@ -368,10 +352,6 @@
       font-size:12px;
       line-height:1.6;
     }
-
-    /* =========================
-       FIELD
-    ========================= */
 
     .field{
       display:grid;
@@ -482,10 +462,6 @@
       background:#fefefe;
     }
 
-    /* =========================
-       CHECKS
-    ========================= */
-
     .checks{
       display:grid;
 
@@ -558,10 +534,6 @@
       accent-color:#111;
     }
 
-    /* =========================
-       INFO CARDS
-    ========================= */
-
     .privacy-card{
       margin-bottom:5px;
 
@@ -591,10 +563,6 @@
       font-size:12px;
       line-height:1.7;
     }
-
-    /* =========================
-       RATING
-    ========================= */
 
     .rating-grid{
       display:grid;
@@ -645,10 +613,6 @@
       border-color:#111;
     }
 
-    /* =========================
-       ERROR
-    ========================= */
-
     .error{
       display:none;
 
@@ -659,10 +623,6 @@
       font-size:11.5px;
       font-weight:650;
     }
-
-    /* =========================
-       BUTTON
-    ========================= */
 
     .actions{
       display:grid;
@@ -720,10 +680,6 @@
       font-size:11.5px;
       line-height:1.55;
     }
-
-    /* =========================
-       THANK YOU
-    ========================= */
 
     .thankyou-stage{
       min-height:62vh;
@@ -806,10 +762,6 @@
 
       font-size:10px;
     }
-
-    /* =========================
-       MOBILE
-    ========================= */
 
     @media (max-width:560px){
 
@@ -905,8 +857,6 @@
 
 <div class="page">
 
-  <!-- HEADER -->
-
   <header>
 
     <div class="header-inner">
@@ -920,11 +870,11 @@
         <div>
 
           <div class="brand-name">
-            KANEI COMMUNITY
+            コミュニティアンケート
           </div>
 
           <span class="brand-license">
-            参加者アンケート
+            参加者さまアンケート
           </span>
 
         </div>
@@ -940,11 +890,7 @@
   </header>
 
 
-  <!-- MAIN -->
-
   <main class="container">
-
-    <!-- HERO -->
 
     <section
       class="hero"
@@ -960,15 +906,13 @@
         <h1>コミュニティについて
 教えてください。</h1>
 
-        <p>今後のコミュニティ改善のため、現在参加してくださっている皆さまへのお願い。
+        <p>今後のコミュニティ改善のため、現在参加してくださっている皆さまへアンケートのご協力をお願いしています。
 </p>
 
       </div>
 
     </section>
 
-
-    <!-- THANK YOU -->
 
     <div
       class="thankyou-stage"
@@ -1011,6 +955,8 @@
           <p class="thankyou-secondary">
             ご回答ありがとうございました。<br>
             今後のコミュニティ運営・サービス改善の参考にさせていただきます。
+          </p>
+
         </section>
 
       </div>
@@ -1018,14 +964,10 @@
     </div>
 
 
-    <!-- FORM -->
-
     <form
       id="surveyForm"
       novalidate
     >
-
-      <!-- PRIVACY -->
 
       <div class="section">
 
@@ -1035,13 +977,10 @@
 
         <div class="privacy-card">
           回答内容は、コミュニティ運営・サービス改善・参加者傾向の分析等に利用させていただきます。
-          <br><br>
-                  </div>
+        </div>
 
       </div>
 
-
-      <!-- BASIC -->
 
       <div class="section">
 
@@ -1147,8 +1086,6 @@
 
       </div>
 
-
-      <!-- CURRENT JOB -->
 
       <div class="section">
 
@@ -1305,8 +1242,6 @@
       </div>
 
 
-      <!-- BEFORE -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1451,8 +1386,6 @@
       </div>
 
 
-      <!-- BEFORE PROBLEMS -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1474,101 +1407,57 @@
         <div class="checks">
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="習慣が続かない"
-            />
+            <input type="checkbox" name="beforeProblems" value="習慣が続かない" />
             習慣が続かない
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="生活リズムが乱れていた"
-            />
+            <input type="checkbox" name="beforeProblems" value="生活リズムが乱れていた" />
             生活リズムが乱れていた
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="行動できない"
-            />
+            <input type="checkbox" name="beforeProblems" value="行動できない" />
             行動できない
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="集中力が続かない"
-            />
+            <input type="checkbox" name="beforeProblems" value="集中力が続かない" />
             集中力が続かない
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="SNS・スマホを見すぎる"
-            />
+            <input type="checkbox" name="beforeProblems" value="SNS・スマホを見すぎる" />
             SNS・スマホを見すぎる
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="自分に自信がなかった"
-            />
+            <input type="checkbox" name="beforeProblems" value="自分に自信がなかった" />
             自分に自信がなかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="目標がなかった"
-            />
+            <input type="checkbox" name="beforeProblems" value="目標がなかった" />
             目標がなかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="将来に不安があった"
-            />
+            <input type="checkbox" name="beforeProblems" value="将来に不安があった" />
             将来に不安があった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="仕事・勉強に集中できない"
-            />
+            <input type="checkbox" name="beforeProblems" value="仕事・勉強に集中できない" />
             仕事・勉強に集中できない
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="筋トレ・運動が続かない"
-            />
+            <input type="checkbox" name="beforeProblems" value="筋トレ・運動が続かない" />
             筋トレ・運動が続かない
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="beforeProblems"
-              value="周囲に同じ目標を持つ人がいない"
-            />
+            <input type="checkbox" name="beforeProblems" value="周囲に同じ目標を持つ人がいない" />
             周囲に同じ目標を持つ人がいない
           </label>
 
@@ -1610,8 +1499,6 @@
       </div>
 
 
-      <!-- JOIN REASON -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1633,83 +1520,47 @@
         <div class="checks">
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="自分を変えたかった"
-            />
+            <input type="checkbox" name="joinReasons" value="自分を変えたかった" />
             自分を変えたかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="自己管理できるようになりたかった"
-            />
+            <input type="checkbox" name="joinReasons" value="自己管理できるようになりたかった" />
             自己管理できるようになりたかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="習慣を変えたかった"
-            />
+            <input type="checkbox" name="joinReasons" value="習慣を変えたかった" />
             習慣を変えたかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="一人では継続できなかった"
-            />
+            <input type="checkbox" name="joinReasons" value="一人では継続できなかった" />
             一人では継続できなかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="同じ目標を持つ仲間が欲しかった"
-            />
+            <input type="checkbox" name="joinReasons" value="同じ目標を持つ仲間が欲しかった" />
             同じ目標を持つ仲間が欲しかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="環境を変えたかった"
-            />
+            <input type="checkbox" name="joinReasons" value="環境を変えたかった" />
             環境を変えたかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="人生を変えるきっかけが欲しかった"
-            />
+            <input type="checkbox" name="joinReasons" value="人生を変えるきっかけが欲しかった" />
             人生を変えるきっかけが欲しかった
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="カネイの発信・考え方に共感した"
-            />
+            <input type="checkbox" name="joinReasons" value="カネイの発信・考え方に共感した" />
             カネイの発信・考え方に共感した
           </label>
 
           <label class="check-item">
-            <input
-              type="checkbox"
-              name="joinReasons"
-              value="YouTubeを見て興味を持った"
-            />
+            <input type="checkbox" name="joinReasons" value="YouTubeを見て興味を持った" />
             YouTubeを見て興味を持った
           </label>
 
@@ -1751,8 +1602,6 @@
       </div>
 
 
-      <!-- OBJECTION -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1786,32 +1635,6 @@
 
       </div>
 
-        <div
-          class="field"
-          id="changeOtherWrap"
-          style="display:none;margin-top:12px;"
-        >
-
-          <textarea
-            id="changeOther"
-            name="changeOther"
-            placeholder="具体的に教えてください"
-          ></textarea>
-
-        </div>
-
-
-        <div
-          class="error"
-          data-error-for="changes"
-        >
-          1つ以上選択してください。
-        </div>
-
-      </div>
-
-
-      <!-- BEFORE AFTER -->
 
       <div class="section">
 
@@ -1880,8 +1703,6 @@
       </div>
 
 
-      <!-- HELPFUL -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1921,8 +1742,6 @@
       </div>
 
 
-      <!-- RECOMMEND -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1953,8 +1772,6 @@
       </div>
 
 
-      <!-- SATISFACTION -->
-
       <div class="section">
 
         <div class="section-title">
@@ -1974,47 +1791,27 @@
           <div class="rating-grid">
 
             <label class="rating-item">
-              <input
-                type="radio"
-                name="satisfaction"
-                value="1"
-              />
+              <input type="radio" name="satisfaction" value="1" />
               <span>1</span>
             </label>
 
             <label class="rating-item">
-              <input
-                type="radio"
-                name="satisfaction"
-                value="2"
-              />
+              <input type="radio" name="satisfaction" value="2" />
               <span>2</span>
             </label>
 
             <label class="rating-item">
-              <input
-                type="radio"
-                name="satisfaction"
-                value="3"
-              />
+              <input type="radio" name="satisfaction" value="3" />
               <span>3</span>
             </label>
 
             <label class="rating-item">
-              <input
-                type="radio"
-                name="satisfaction"
-                value="4"
-              />
+              <input type="radio" name="satisfaction" value="4" />
               <span>4</span>
             </label>
 
             <label class="rating-item">
-              <input
-                type="radio"
-                name="satisfaction"
-                value="5"
-              />
+              <input type="radio" name="satisfaction" value="5" />
               <span>5</span>
             </label>
 
@@ -2046,8 +1843,6 @@
       </div>
 
 
-      <!-- REQUEST -->
-
       <div class="section">
 
         <div class="section-title">
@@ -2077,17 +1872,6 @@
 
       </div>
 
-        <div
-          class="error"
-          data-error-for="publishPermission"
-        >
-          掲載可否を選択してください。
-        </div>
-
-      </div>
-
-
-      <!-- FREE MESSAGE -->
 
       <div class="section">
 
@@ -2119,8 +1903,6 @@
       </div>
 
 
-      <!-- SUBMIT -->
-
       <div class="actions">
 
         <button
@@ -2146,17 +1928,11 @@
 </div>
 
 
-<!-- EMAIL JS -->
-
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 
 <script>
 (() => {
-
-  /* ==========================================
-     CONFIG
-  ========================================== */
 
   const CONFIG = {
 
@@ -2170,16 +1946,12 @@
       "template_hmmrh9t",
 
     GOOGLE_SCRIPT_URL:
-      "https://script.google.com/macros/s/AKfycbwsuNoT_UbGZ3DiQLE6Mv-IoJTHaP4DzlQh3tTeCbgXGmw6_OuNK1eJTeZrgfB_ke3Q/exec",
+      "https://script.google.com/macros/s/AKfycbw2L4zNPreqbP3fypMCPqJKZ4msFkEOyaCSwWx_3i_FJIvj6D4LeD_CLIRlndcjMQez/exec",
 
     MAX_SELECT:3
 
   };
 
-
-  /* ==========================================
-     ELEMENTS
-  ========================================== */
 
   const form =
     document.getElementById("surveyForm");
@@ -2193,10 +1965,6 @@
   const thankYouStage =
     document.getElementById("thankYouStage");
 
-
-  /* ==========================================
-     HELPERS
-  ========================================== */
 
   const showError = (name,on) => {
 
@@ -2235,10 +2003,6 @@
 
   };
 
-
-  /* ==========================================
-     OTHER FIELD
-  ========================================== */
 
   const bindSelectOther = (
     selectId,
@@ -2359,16 +2123,6 @@
     "joinReasonOther"
   );
 
-  bindCheckboxOther(
-    "changeOtherChk",
-    "changeOtherWrap",
-    "changeOther"
-  );
-
-
-  /* ==========================================
-     MAX 3
-  ========================================== */
 
   const bindLimit = name => {
 
@@ -2414,63 +2168,6 @@
   bindLimit("joinReasons");
 
 
-  /* ==========================================
-     SPECIAL CHANGE LOGIC
-  ========================================== */
-
-  const changeInputs = [
-    ...document.querySelectorAll(
-      'input[name="changes"]'
-    )
-  ];
-
-  changeInputs.forEach(el => {
-
-    el.addEventListener(
-      "change",
-      () => {
-
-        if(
-          el.value ===
-          "特に変化はない" &&
-          el.checked
-        ){
-
-          changeInputs.forEach(other => {
-
-            if(
-              other !== el
-            ){
-              other.checked = false;
-            }
-
-          });
-
-        }else if(el.checked){
-
-          const none =
-            changeInputs.find(
-              item =>
-                item.value ===
-                "特に変化はない"
-            );
-
-          if(none){
-            none.checked = false;
-          }
-
-        }
-
-      }
-    );
-
-  });
-
-
-  /* ==========================================
-     VALIDATION
-  ========================================== */
-
   const validateAll = () => {
 
     let ok = true;
@@ -2481,18 +2178,14 @@
       "before",
       "beforeProblems",
       "joinReasons",
-      "changes",
       "specificChange",
       "mostHelpful",
-      "satisfaction",
-      "publishPermission"
+      "satisfaction"
     ].forEach(
       key =>
         showError(key,false)
     );
 
-
-    /* BASIC */
 
     if(
       !form.profileName.value.trim() ||
@@ -2509,8 +2202,6 @@
 
     }
 
-
-    /* CURRENT */
 
     if(
       !form.currentJob.value ||
@@ -2542,8 +2233,6 @@
     }
 
 
-    /* BEFORE */
-
     if(
       !form.beforeJob.value ||
       !form.beforeSituation.value.trim()
@@ -2573,8 +2262,6 @@
 
     }
 
-
-    /* BEFORE PROBLEMS */
 
     const beforeProblems =
       getCheckedValues(
@@ -2618,8 +2305,6 @@
     }
 
 
-    /* JOIN */
-
     const joinReasons =
       getCheckedValues(
         "joinReasons"
@@ -2662,50 +2347,6 @@
     }
 
 
-    /* CHANGES */
-
-    const changes =
-      getCheckedValues(
-        "changes"
-      );
-
-    if(
-      changes.length < 1
-    ){
-
-      showError(
-        "changes",
-        true
-      );
-
-      ok = false;
-
-    }
-
-    if(
-      document
-        .getElementById(
-          "changeOtherChk"
-        )
-        .checked &&
-      !form
-        .changeOther
-        .value
-        .trim()
-    ){
-
-      showError(
-        "changes",
-        true
-      );
-
-      ok = false;
-
-    }
-
-
-    /* SPECIFIC CHANGE */
-
     if(
       !form
         .specificChange
@@ -2722,8 +2363,6 @@
 
     }
 
-
-    /* HELPFUL */
 
     if(
       !form
@@ -2742,8 +2381,6 @@
     }
 
 
-    /* SATISFACTION */
-
     if(
       !getRadioValue(
         "satisfaction"
@@ -2760,32 +2397,10 @@
     }
 
 
-    /* PERMISSION */
-
-    if(
-      !getRadioValue(
-        "publishPermission"
-      )
-    ){
-
-      showError(
-        "publishPermission",
-        true
-      );
-
-      ok = false;
-
-    }
-
-
     return ok;
 
   };
 
-
-  /* ==========================================
-     OTHER TEXT MERGE
-  ========================================== */
 
   const mergeOther = (
     values,
@@ -2827,10 +2442,6 @@
   };
 
 
-  /* ==========================================
-     BUILD DATA
-  ========================================== */
-
   const buildTemplateParams = () => {
 
     const beforeProblems =
@@ -2841,11 +2452,6 @@
     const joinReasons =
       getCheckedValues(
         "joinReasons"
-      );
-
-    const changes =
-      getCheckedValues(
-        "changes"
       );
 
 
@@ -2872,9 +2478,6 @@
       form_type:
         "コミュニティ既存参加者アンケート",
 
-
-      /* ATTRIBUTE */
-
       profile_name:
         form.profileName.value.trim(),
 
@@ -2890,9 +2493,6 @@
       membership_period:
         form.membershipPeriod.value,
 
-
-      /* BEFORE */
-
       before_job:
         beforeJob,
 
@@ -2906,9 +2506,6 @@
           "beforeProblemOther"
         ),
 
-
-      /* PURCHASE MOTIVE */
-
       join_reasons:
         mergeOther(
           joinReasons,
@@ -2919,24 +2516,11 @@
       before_concern:
         form.beforeConcern.value.trim(),
 
-
-      /* AFTER */
-
-      changes:
-        mergeOther(
-          changes,
-          "changeOtherChk",
-          "changeOther"
-        ),
-
       specific_change:
         form.specificChange.value.trim(),
 
       numeric_result:
         form.numericResult.value.trim(),
-
-
-      /* VALUE */
 
       most_helpful:
         form.mostHelpful.value.trim(),
@@ -2949,28 +2533,11 @@
           "satisfaction"
         ),
 
-
-      /* FUTURE */
-
       request:
         form.request.value.trim(),
 
-
-      /* PERMISSION */
-
-      publish_permission:
-        getRadioValue(
-          "publishPermission"
-        ),
-
-
-      /* FREE */
-
       free_message:
         form.freeMessage.value.trim(),
-
-
-      /* META */
 
       submitted_at:
         new Date()
@@ -2982,10 +2549,6 @@
 
   };
 
-
-  /* ==========================================
-     GOOGLE SHEETS
-  ========================================== */
 
   const saveToGoogleSheets =
     async params => {
@@ -3044,10 +2607,6 @@
     };
 
 
-  /* ==========================================
-     THANK YOU
-  ========================================== */
-
   const showThankYouView = () => {
 
     hero.style.display =
@@ -3066,10 +2625,6 @@
 
   };
 
-
-  /* ==========================================
-     EMAILJS
-  ========================================== */
 
   const initEmailJs = () => {
 
@@ -3095,10 +2650,6 @@
   const emailReady =
     initEmailJs();
 
-
-  /* ==========================================
-     SUBMIT
-  ========================================== */
 
   form.addEventListener(
     "submit",
@@ -3244,10 +2795,6 @@
   );
 
 
-  /* ==========================================
-     CLEAR ERRORS ON INPUT
-  ========================================== */
-
   const clearOnInput = (
     selector,
     errorName
@@ -3305,11 +2852,6 @@
   );
 
   clearOnInput(
-    'input[name="changes"],#changeOther',
-    "changes"
-  );
-
-  clearOnInput(
     "#specificChange",
     "specificChange"
   );
@@ -3322,11 +2864,6 @@
   clearOnInput(
     'input[name="satisfaction"]',
     "satisfaction"
-  );
-
-  clearOnInput(
-    'input[name="publishPermission"]',
-    "publishPermission"
   );
 
 })();
