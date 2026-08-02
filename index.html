@@ -1,0 +1,3564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
+  <title>コミュニティ参加者アンケート</title>
+
+  <meta
+    name="description"
+    content="コミュニティ参加者さま向けアンケートです。"
+  />
+
+  <meta name="theme-color" content="#111111" />
+
+  <style>
+    :root{
+      --bg:#f7f7f7;
+      --card:#ffffff;
+      --text:#111111;
+      --muted:#727272;
+      --line:#e5e5e5;
+
+      --accent:#111111;
+      --accent-soft:#f3f3f3;
+
+      --danger:#dc2626;
+
+      --shadow:
+        0 10px 30px rgba(0,0,0,.06);
+
+      --radius-lg:18px;
+      --radius-md:11px;
+      --radius-sm:9px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      margin:0;
+      padding:0;
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
+
+      font-family:
+        system-ui,
+        -apple-system,
+        "Hiragino Kaku Gothic ProN",
+        "Noto Sans JP",
+        "Segoe UI",
+        sans-serif;
+
+      color:var(--text);
+      background:var(--bg);
+
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+
+    body{
+      min-height:100vh;
+    }
+
+    .page{
+      min-height:100dvh;
+
+      display:grid;
+      grid-template-rows:auto 1fr auto;
+
+      gap:18px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+
+      -webkit-backdrop-filter:blur(12px);
+      backdrop-filter:blur(12px);
+
+      background:rgba(247,247,247,.90);
+
+      border-bottom:
+        1px solid rgba(0,0,0,.05);
+    }
+
+    .header-inner{
+      width:100%;
+      max-width:920px;
+
+      margin:0 auto;
+      padding:15px 18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+
+      flex:0 0 42px;
+
+      display:grid;
+      place-items:center;
+
+      overflow:hidden;
+
+      color:#fff;
+      background:#111;
+
+      border-radius:12px;
+
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.05em;
+
+      box-shadow:
+        0 4px 14px rgba(0,0,0,.10);
+    }
+
+    .brand-name{
+      line-height:1.35;
+      font-size:14px;
+      font-weight:750;
+    }
+
+    .brand-license{
+      display:block;
+
+      margin-top:2px;
+
+      color:var(--muted);
+
+      font-size:10px;
+      font-weight:500;
+    }
+
+    .pill-note{
+      flex:0 0 auto;
+
+      padding:7px 12px;
+
+      color:#333;
+      background:#fff;
+
+      border:1px solid var(--line);
+      border-radius:999px;
+
+      white-space:nowrap;
+
+      font-size:11px;
+      font-weight:700;
+    }
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container{
+      width:100%;
+      max-width:920px;
+
+      margin:0 auto 28px;
+
+      padding:0 4vw;
+    }
+
+    @media (min-width:920px){
+      .container{
+        padding:0 18px;
+      }
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      position:relative;
+
+      overflow:hidden;
+
+      padding:30px 24px 26px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #ffffff 65%,
+          #f0f0f0
+        );
+
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+
+      box-shadow:var(--shadow);
+    }
+
+    .hero::after{
+      content:"";
+
+      position:absolute;
+
+      width:280px;
+      height:280px;
+
+      right:-120px;
+      top:-130px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,0,0,.055),
+          transparent 68%
+        );
+
+      pointer-events:none;
+    }
+
+    .hero-head{
+      position:relative;
+      z-index:1;
+
+      display:flex;
+      flex-direction:column;
+
+      gap:7px;
+    }
+
+    .hero .meta{
+      display:inline-flex;
+      align-items:center;
+
+      width:fit-content;
+      max-width:100%;
+
+      padding:6px 10px;
+
+      color:#444;
+      background:#f3f3f3;
+
+      border:1px solid #e7e7e7;
+      border-radius:999px;
+
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .hero h1{
+      margin:4px 0 4px;
+
+      font-size:
+        clamp(24px,3.8vw,32px);
+
+      line-height:1.25;
+      letter-spacing:.01em;
+
+      white-space:pre-line;
+    }
+
+    .hero p{
+      max-width:680px;
+
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:14px;
+      line-height:1.75;
+
+      white-space:pre-line;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    form{
+      margin-top:18px;
+      padding:8px 0 4px;
+
+      background:var(--card);
+
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+
+      box-shadow:var(--shadow);
+    }
+
+    .section{
+      padding:22px 22px 10px;
+
+      border-top:
+        1px dashed rgba(0,0,0,.08);
+    }
+
+    .section:first-child{
+      border-top:none;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:baseline;
+
+      gap:8px;
+
+      flex-wrap:wrap;
+
+      margin:0 0 14px;
+
+      font-size:15px;
+      font-weight:800;
+    }
+
+    .section-title .req{
+      color:var(--danger);
+
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .section-title .limit{
+      color:var(--muted);
+
+      font-size:11px;
+      font-weight:600;
+    }
+
+    .section-sub{
+      margin:-7px 0 14px;
+
+      color:var(--muted);
+
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .choice-note{
+      margin:-7px 0 13px;
+
+      color:var(--muted);
+
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    /* =========================
+       FIELD
+    ========================= */
+
+    .field{
+      display:grid;
+
+      gap:8px;
+
+      min-width:0;
+
+      margin-bottom:16px;
+    }
+
+    .grid-2{
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:16px;
+    }
+
+    @media (min-width:720px){
+      .grid-2{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    .basic-pair{
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:18px;
+    }
+
+    .basic-pair .field{
+      margin-bottom:0;
+    }
+
+    .inline-label{
+      display:block;
+
+      margin:0 0 5px;
+
+      color:#555;
+
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .field-description{
+      margin:-2px 0 5px;
+
+      color:var(--muted);
+
+      font-size:11.5px;
+      line-height:1.55;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea{
+      width:100%;
+      max-width:100%;
+
+      padding:12px 13px;
+
+      color:var(--text);
+      background:#fff;
+
+      border:1px solid var(--line);
+      border-radius:var(--radius-md);
+
+      outline:none;
+
+      font-family:inherit;
+      font-size:16px;
+
+      transition:
+        border .15s ease,
+        box-shadow .15s ease,
+        background .15s ease;
+    }
+
+    textarea{
+      min-height:112px;
+      resize:vertical;
+
+      line-height:1.65;
+    }
+
+    .textarea-large{
+      min-height:145px;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:#aaa;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:#777;
+
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,.055);
+
+      background:#fefefe;
+    }
+
+    /* =========================
+       CHECKS
+    ========================= */
+
+    .checks{
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:10px;
+    }
+
+    @media (min-width:720px){
+      .checks{
+        grid-template-columns:
+          repeat(3,minmax(0,1fr));
+      }
+    }
+
+    .checks.one-column{
+      grid-template-columns:1fr;
+    }
+
+    .check-item{
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      min-width:0;
+
+      padding:11px;
+
+      color:#222;
+      background:#fff;
+
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+
+      line-height:1.4;
+
+      font-size:13px;
+      font-weight:550;
+
+      cursor:pointer;
+
+      transition:
+        border .15s ease,
+        background .15s ease,
+        transform .08s ease,
+        box-shadow .15s ease;
+    }
+
+    .check-item:hover{
+      border-color:#bdbdbd;
+
+      background:#fafafa;
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,.035);
+    }
+
+    .check-item:active{
+      transform:translateY(1px);
+    }
+
+    input[type="checkbox"],
+    input[type="radio"]{
+      width:18px;
+      height:18px;
+
+      flex:0 0 18px;
+
+      accent-color:#111;
+    }
+
+    /* =========================
+       INFO CARDS
+    ========================= */
+
+    .privacy-card{
+      margin-bottom:5px;
+
+      padding:15px;
+
+      color:#606060;
+      background:#fafafa;
+
+      border:1px solid #e8e8e8;
+      border-radius:14px;
+
+      font-size:12px;
+      line-height:1.75;
+    }
+
+    .important-card{
+      margin-bottom:16px;
+
+      padding:14px 15px;
+
+      color:#444;
+      background:#f6f6f6;
+
+      border-left:3px solid #111;
+      border-radius:4px 10px 10px 4px;
+
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    /* =========================
+       RATING
+    ========================= */
+
+    .rating-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(5,1fr);
+
+      gap:7px;
+    }
+
+    .rating-item{
+      position:relative;
+    }
+
+    .rating-item input{
+      position:absolute;
+
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .rating-item span{
+      display:grid;
+      place-items:center;
+
+      min-height:46px;
+
+      padding:8px 4px;
+
+      color:#555;
+      background:#fff;
+
+      border:1px solid var(--line);
+      border-radius:9px;
+
+      cursor:pointer;
+
+      font-size:13px;
+      font-weight:700;
+
+      transition:.15s ease;
+    }
+
+    .rating-item input:checked + span{
+      color:#fff;
+      background:#111;
+
+      border-color:#111;
+    }
+
+    /* =========================
+       ERROR
+    ========================= */
+
+    .error{
+      display:none;
+
+      margin-top:9px;
+
+      color:var(--danger);
+
+      font-size:11.5px;
+      font-weight:650;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .actions{
+      display:grid;
+
+      gap:10px;
+
+      padding:20px 22px 24px;
+    }
+
+    .btn{
+      width:100%;
+
+      padding:15px;
+
+      border:none;
+      border-radius:14px;
+
+      font-family:inherit;
+
+      font-size:15px;
+      font-weight:800;
+
+      cursor:pointer;
+
+      transition:
+        transform .08s ease,
+        opacity .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .btn-primary{
+      color:#fff;
+      background:#111;
+
+      box-shadow:
+        0 12px 24px rgba(0,0,0,.16);
+    }
+
+    .btn-primary:hover{
+      opacity:.91;
+    }
+
+    .btn-primary:active{
+      transform:translateY(1px);
+    }
+
+    .btn-primary:disabled{
+      cursor:not-allowed;
+      opacity:.55;
+    }
+
+    .hint{
+      color:var(--muted);
+
+      font-size:11.5px;
+      line-height:1.55;
+    }
+
+    /* =========================
+       THANK YOU
+    ========================= */
+
+    .thankyou-stage{
+      min-height:62vh;
+
+      display:none;
+      justify-content:center;
+      align-items:flex-start;
+
+      padding-top:10px;
+    }
+
+    .thankyou{
+      width:100%;
+
+      margin-top:10px;
+
+      padding:38px 22px 30px;
+
+      text-align:center;
+
+      background:#fff;
+
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+
+      box-shadow:var(--shadow);
+    }
+
+    .done-badge{
+      width:56px;
+      height:56px;
+
+      margin:0 auto 12px;
+
+      display:grid;
+      place-items:center;
+
+      color:#fff;
+      background:#111;
+
+      border-radius:50%;
+
+      box-shadow:
+        0 10px 20px rgba(0,0,0,.16);
+    }
+
+    .done-kicker{
+      margin-bottom:4px;
+
+      color:#777;
+
+      font-size:11px;
+      font-weight:800;
+
+      letter-spacing:.08em;
+    }
+
+    .thankyou h2{
+      margin:0 0 12px;
+
+      font-size:
+        clamp(22px,3.2vw,27px);
+    }
+
+    .thankyou-secondary{
+      margin:0;
+
+      color:#666;
+
+      font-size:12.5px;
+      line-height:1.8;
+    }
+
+    footer{
+      padding:10px 18px 26px;
+
+      color:var(--muted);
+
+      text-align:center;
+
+      font-size:10px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width:560px){
+
+      .header-inner{
+        padding:12px 10px;
+        gap:8px;
+      }
+
+      .brand{
+        gap:8px;
+      }
+
+      .brand-mark{
+        width:38px;
+        height:38px;
+
+        flex-basis:38px;
+
+        border-radius:10px;
+      }
+
+      .brand-name{
+        max-width:160px;
+
+        font-size:12px;
+      }
+
+      .brand-license{
+        font-size:9px;
+      }
+
+      .pill-note{
+        padding:6px 8px;
+
+        font-size:9px;
+      }
+
+      .container{
+        padding:0 10px;
+      }
+
+      .hero{
+        padding:24px 17px 21px;
+      }
+
+      .hero h1{
+        font-size:25px;
+      }
+
+      .section{
+        padding:19px 14px 8px;
+      }
+
+      .actions{
+        padding:18px 14px 20px;
+      }
+
+      .checks{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .basic-pair{
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+      }
+    }
+
+    @media (max-width:390px){
+
+      .brand-name{
+        max-width:125px;
+
+        font-size:11px;
+      }
+
+      .pill-note{
+        font-size:8.5px;
+      }
+
+      .basic-pair{
+        grid-template-columns:1fr;
+      }
+
+      .checks{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          K
+        </div>
+
+        <div>
+
+          <div class="brand-name">
+            KANEI COMMUNITY
+          </div>
+
+          <span class="brand-license">
+            参加者アンケート
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="pill-note">
+        メンバーの皆さまへ
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+    <!-- HERO -->
+
+    <section
+      class="hero"
+      id="heroSection"
+    >
+
+      <div class="hero-head">
+
+        <span class="meta">
+          アンケートご協力のお願い
+        </span>
+
+        <h1>コミュニティについて
+教えてください。</h1>
+
+        <p>今後のコミュニティをより良くしていくため、現在参加してくださっている皆さんのことを教えてください。
+
+参加前の状況や、参加してから感じた変化についても、率直に回答いただけるとうれしいです。</p>
+
+      </div>
+
+    </section>
+
+
+    <!-- THANK YOU -->
+
+    <div
+      class="thankyou-stage"
+      id="thankYouStage"
+    >
+
+      <div style="width:100%;">
+
+        <section
+          class="thankyou"
+          id="thankYouSection"
+        >
+
+          <div
+            class="done-badge"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              width="27"
+              height="27"
+            >
+              <path
+                fill="#ffffff"
+                d="M9 16.2l-3.5-3.5a1 1 0 0 1 1.4-1.4l2.8 2.8 7.3-7.3a1 1 0 1 1 1.4 1.4l-8 8a1 1 0 0 1-1.4 0z"
+              />
+            </svg>
+
+          </div>
+
+          <div class="done-kicker">
+            送信完了
+          </div>
+
+          <h2>
+            ありがとうございます。
+          </h2>
+
+          <p class="thankyou-secondary">
+            ご回答ありがとうございました。<br>
+            今後のコミュニティ運営・サービス改善の参考にさせていただきます。
+          </p>
+
+        </section>
+
+      </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <form
+      id="surveyForm"
+      novalidate
+    >
+
+      <!-- PRIVACY -->
+
+      <div class="section">
+
+        <div class="section-title">
+          はじめに
+        </div>
+
+        <div class="privacy-card">
+          回答内容は、コミュニティ運営・サービス改善・参加者傾向の分析等に利用させていただきます。
+          <br><br>
+          LP・SNS等への掲載については、最後に掲載可否を確認します。
+          「掲載不可」を選択した回答を、参加者の声として外部に掲載することはありません。
+        </div>
+
+      </div>
+
+
+      <!-- BASIC -->
+
+      <div class="section">
+
+        <div class="section-title">
+          基本情報
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="profileName"
+          >
+            Discordのプロフィール名
+          </label>
+
+          <input
+            id="profileName"
+            name="profileName"
+            type="text"
+            autocomplete="nickname"
+            placeholder="例：KANEI"
+            required
+          />
+
+        </div>
+
+
+        <div class="basic-pair">
+
+          <div class="field">
+
+            <label
+              class="inline-label"
+              for="sex"
+            >
+              性別
+            </label>
+
+            <select
+              id="sex"
+              name="sex"
+              required
+            >
+
+              <option value="">
+                選択してください
+              </option>
+
+              <option value="男性">
+                男性
+              </option>
+
+              <option value="女性">
+                女性
+              </option>
+
+              <option value="回答しない">
+                回答しない
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label
+              class="inline-label"
+              for="age"
+            >
+              年齢
+            </label>
+
+            <input
+              id="age"
+              name="age"
+              type="number"
+              inputmode="numeric"
+              step="1"
+              min="12"
+              max="99"
+              placeholder="例：24"
+              required
+            />
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="basic"
+        >
+          プロフィール名・性別・年齢を入力してください。
+        </div>
+
+      </div>
+
+
+      <!-- CURRENT JOB -->
+
+      <div class="section">
+
+        <div class="section-title">
+          現在について
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="currentJob"
+          >
+            現在の職業
+          </label>
+
+          <select
+            id="currentJob"
+            name="currentJob"
+            required
+          >
+
+            <option value="">
+              選択してください
+            </option>
+
+            <option value="会社員">
+              会社員
+            </option>
+
+            <option value="経営者・会社役員">
+              経営者・会社役員
+            </option>
+
+            <option value="個人事業主">
+              個人事業主
+            </option>
+
+            <option value="フリーランス">
+              フリーランス
+            </option>
+
+            <option value="公務員">
+              公務員
+            </option>
+
+            <option value="大学生・大学院生">
+              大学生・大学院生
+            </option>
+
+            <option value="専門学生">
+              専門学生
+            </option>
+
+            <option value="高校生">
+              高校生
+            </option>
+
+            <option value="アルバイト・パート">
+              アルバイト・パート
+            </option>
+
+            <option value="無職・求職中">
+              無職・求職中
+            </option>
+
+            <option value="その他">
+              その他
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div
+          class="field"
+          id="currentJobOtherWrap"
+          style="display:none;"
+        >
+
+          <label
+            class="inline-label"
+            for="currentJobOther"
+          >
+            現在の職業を教えてください
+          </label>
+
+          <input
+            id="currentJobOther"
+            name="currentJobOther"
+            type="text"
+            placeholder="自由にご記入ください"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="membershipPeriod"
+          >
+            コミュニティへの参加期間
+          </label>
+
+          <select
+            id="membershipPeriod"
+            name="membershipPeriod"
+            required
+          >
+
+            <option value="">
+              選択してください
+            </option>
+
+            <option value="1ヶ月未満">
+              1ヶ月未満
+            </option>
+
+            <option value="1〜3ヶ月">
+              1〜3ヶ月
+            </option>
+
+            <option value="3〜6ヶ月">
+              3〜6ヶ月
+            </option>
+
+            <option value="6〜12ヶ月">
+              6〜12ヶ月
+            </option>
+
+            <option value="1年以上">
+              1年以上
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="current"
+        >
+          現在の職業・参加期間を選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- BEFORE -->
+
+      <div class="section">
+
+        <div class="section-title">
+          コミュニティ参加前について
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="important-card">
+          ここでは「コミュニティに入る前、どんな状態だったか」を教えてください。
+          現在と比較するために利用します。
+        </div>
+
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="beforeJob"
+          >
+            コミュニティ参加前の職業・立場
+          </label>
+
+          <select
+            id="beforeJob"
+            name="beforeJob"
+            required
+          >
+
+            <option value="">
+              選択してください
+            </option>
+
+            <option value="会社員">
+              会社員
+            </option>
+
+            <option value="経営者・会社役員">
+              経営者・会社役員
+            </option>
+
+            <option value="個人事業主">
+              個人事業主
+            </option>
+
+            <option value="フリーランス">
+              フリーランス
+            </option>
+
+            <option value="公務員">
+              公務員
+            </option>
+
+            <option value="大学生・大学院生">
+              大学生・大学院生
+            </option>
+
+            <option value="専門学生">
+              専門学生
+            </option>
+
+            <option value="高校生">
+              高校生
+            </option>
+
+            <option value="アルバイト・パート">
+              アルバイト・パート
+            </option>
+
+            <option value="無職・求職中">
+              無職・求職中
+            </option>
+
+            <option value="現在と同じ">
+              現在と同じ
+            </option>
+
+            <option value="その他">
+              その他
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div
+          class="field"
+          id="beforeJobOtherWrap"
+          style="display:none;"
+        >
+
+          <label
+            class="inline-label"
+            for="beforeJobOther"
+          >
+            当時の職業・立場
+          </label>
+
+          <input
+            id="beforeJobOther"
+            name="beforeJobOther"
+            type="text"
+            placeholder="自由にご記入ください"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="beforeSituation"
+          >
+            参加前は、どのような生活・状態でしたか？
+          </label>
+
+          <div class="field-description">
+            当時の生活、習慣、仕事、勉強、考え方などについて自由に教えてください。
+          </div>
+
+          <textarea
+            id="beforeSituation"
+            name="beforeSituation"
+            class="textarea-large"
+            placeholder="例：仕事から帰るとYouTubeやSNSを見て一日が終わり、やりたいことはあるのに行動できない状態でした。"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="before"
+        >
+          参加前の職業・状態を入力してください。
+        </div>
+
+      </div>
+
+
+      <!-- BEFORE PROBLEMS -->
+
+      <div class="section">
+
+        <div class="section-title">
+          参加前に悩んでいたこと
+
+          <span class="req">
+            必須
+          </span>
+
+          <span class="limit">
+            3つまで
+          </span>
+        </div>
+
+        <div class="choice-note">
+          当時、特に強く悩んでいたものを選択してください。
+        </div>
+
+        <div class="checks">
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="習慣が続かない"
+            />
+            習慣が続かない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="生活リズムが乱れていた"
+            />
+            生活リズムが乱れていた
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="行動できない"
+            />
+            行動できない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="集中力が続かない"
+            />
+            集中力が続かない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="SNS・スマホを見すぎる"
+            />
+            SNS・スマホを見すぎる
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="自分に自信がなかった"
+            />
+            自分に自信がなかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="目標がなかった"
+            />
+            目標がなかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="将来に不安があった"
+            />
+            将来に不安があった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="仕事・勉強に集中できない"
+            />
+            仕事・勉強に集中できない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="筋トレ・運動が続かない"
+            />
+            筋トレ・運動が続かない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="beforeProblems"
+              value="周囲に同じ目標を持つ人がいない"
+            />
+            周囲に同じ目標を持つ人がいない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              id="beforeProblemOtherChk"
+              name="beforeProblems"
+              value="その他"
+            />
+            その他
+          </label>
+
+        </div>
+
+
+        <div
+          class="field"
+          id="beforeProblemOtherWrap"
+          style="display:none;margin-top:12px;"
+        >
+
+          <textarea
+            id="beforeProblemOther"
+            name="beforeProblemOther"
+            placeholder="具体的に教えてください"
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="beforeProblems"
+        >
+          1つ以上、3つ以内で選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- JOIN REASON -->
+
+      <div class="section">
+
+        <div class="section-title">
+          入会した理由
+
+          <span class="req">
+            必須
+          </span>
+
+          <span class="limit">
+            3つまで
+          </span>
+        </div>
+
+        <div class="choice-note">
+          特に大きかった理由を選択してください。
+        </div>
+
+        <div class="checks">
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="自分を変えたかった"
+            />
+            自分を変えたかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="自己管理できるようになりたかった"
+            />
+            自己管理できるようになりたかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="習慣を変えたかった"
+            />
+            習慣を変えたかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="一人では継続できなかった"
+            />
+            一人では継続できなかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="同じ目標を持つ仲間が欲しかった"
+            />
+            同じ目標を持つ仲間が欲しかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="環境を変えたかった"
+            />
+            環境を変えたかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="人生を変えるきっかけが欲しかった"
+            />
+            人生を変えるきっかけが欲しかった
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="カネイさんの発信・考え方に共感した"
+            />
+            カネイさんの発信・考え方に共感した
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="joinReasons"
+              value="YouTubeを見て興味を持った"
+            />
+            YouTubeを見て興味を持った
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              id="joinReasonOtherChk"
+              name="joinReasons"
+              value="その他"
+            />
+            その他
+          </label>
+
+        </div>
+
+
+        <div
+          class="field"
+          id="joinReasonOtherWrap"
+          style="display:none;margin-top:12px;"
+        >
+
+          <textarea
+            id="joinReasonOther"
+            name="joinReasonOther"
+            placeholder="具体的に教えてください"
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="joinReasons"
+        >
+          1つ以上、3つ以内で選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- OBJECTION -->
+
+      <div class="section">
+
+        <div class="section-title">
+          入会前の不安
+
+          <span class="limit">
+            任意
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="beforeConcern"
+          >
+            入会する前に、不安だったこと・迷っていたことはありましたか？
+          </label>
+
+          <div class="field-description">
+            「本当に変われるのか」「自分に合うのか」など、当時感じていたことをそのまま教えてください。
+          </div>
+
+          <textarea
+            id="beforeConcern"
+            name="beforeConcern"
+            placeholder="特になかった場合は空欄で大丈夫です。"
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHANGE -->
+
+      <div class="section">
+
+        <div class="section-title">
+          参加してからの変化
+
+          <span class="req">
+            必須
+          </span>
+
+          <span class="limit">
+            複数選択可
+          </span>
+        </div>
+
+        <div class="choice-note">
+          参加前と比べて、良い変化があったものをすべて選択してください。
+        </div>
+
+        <div class="checks">
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="生活習慣"
+            />
+            生活習慣
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="睡眠・起床"
+            />
+            睡眠・起床
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="集中力"
+            />
+            集中力
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="SNS・スマホ時間"
+            />
+            SNS・スマホ時間
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="筋トレ・運動"
+            />
+            筋トレ・運動
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="勉強"
+            />
+            勉強
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="仕事"
+            />
+            仕事
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="行動力"
+            />
+            行動力
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="自信"
+            />
+            自信
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="メンタル・考え方"
+            />
+            メンタル・考え方
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="人間関係"
+            />
+            人間関係
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="目標・将来像"
+            />
+            目標・将来像
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="収入・仕事の成果"
+            />
+            収入・仕事の成果
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              name="changes"
+              value="特に変化はない"
+            />
+            特に変化はない
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              id="changeOtherChk"
+              name="changes"
+              value="その他"
+            />
+            その他
+          </label>
+
+        </div>
+
+
+        <div
+          class="field"
+          id="changeOtherWrap"
+          style="display:none;margin-top:12px;"
+        >
+
+          <textarea
+            id="changeOther"
+            name="changeOther"
+            placeholder="具体的に教えてください"
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="changes"
+        >
+          1つ以上選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- BEFORE AFTER -->
+
+      <div class="section">
+
+        <div class="section-title">
+          具体的な変化・成果
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="important-card">
+          小さな変化でも大丈夫です。
+          「参加前は○○だった → 今は○○になった」のように書いていただけると、とても参考になります。
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="specificChange"
+          >
+            参加前と比べて、具体的に何が変わりましたか？
+          </label>
+
+          <textarea
+            id="specificChange"
+            name="specificChange"
+            class="textarea-large"
+            placeholder="例：以前は夜2〜3時までスマホを見ていましたが、今は23時頃に寝て朝7時に起きる生活を継続できるようになりました。"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="numericResult"
+          >
+            数字で表せる成果があれば教えてください
+          </label>
+
+          <div class="field-description">
+            任意：継続日数、起床時間、勉強時間、スクリーンタイム、筋トレ頻度、体重、収入、資格など。
+          </div>
+
+          <textarea
+            id="numericResult"
+            name="numericResult"
+            placeholder="例：スクリーンタイムが1日7時間→3時間、筋トレ週0回→週4回、資格勉強を90日継続など"
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="specificChange"
+        >
+          参加してからの具体的な変化を入力してください。
+        </div>
+
+      </div>
+
+
+      <!-- HELPFUL -->
+
+      <div class="section">
+
+        <div class="section-title">
+          特に役立ったこと
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="mostHelpful"
+          >
+            コミュニティに入って、一番役立ったこと・良かったことは何ですか？
+          </label>
+
+          <textarea
+            id="mostHelpful"
+            name="mostHelpful"
+            placeholder="コンテンツ、環境、仲間、考え方の変化など、自由に教えてください。"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="mostHelpful"
+        >
+          一番役立ったことを入力してください。
+        </div>
+
+      </div>
+
+
+      <!-- RECOMMEND -->
+
+      <div class="section">
+
+        <div class="section-title">
+          どんな人におすすめ？
+
+          <span class="limit">
+            任意
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="recommendFor"
+          >
+            このコミュニティは、どんな人におすすめだと思いますか？
+          </label>
+
+          <textarea
+            id="recommendFor"
+            name="recommendFor"
+            placeholder="例：やりたいことはあるけど、一人だと行動を継続できない人"
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- SATISFACTION -->
+
+      <div class="section">
+
+        <div class="section-title">
+          満足度
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label class="inline-label">
+            現在のコミュニティへの満足度を教えてください
+          </label>
+
+          <div class="rating-grid">
+
+            <label class="rating-item">
+              <input
+                type="radio"
+                name="satisfaction"
+                value="1"
+              />
+              <span>1</span>
+            </label>
+
+            <label class="rating-item">
+              <input
+                type="radio"
+                name="satisfaction"
+                value="2"
+              />
+              <span>2</span>
+            </label>
+
+            <label class="rating-item">
+              <input
+                type="radio"
+                name="satisfaction"
+                value="3"
+              />
+              <span>3</span>
+            </label>
+
+            <label class="rating-item">
+              <input
+                type="radio"
+                name="satisfaction"
+                value="4"
+              />
+              <span>4</span>
+            </label>
+
+            <label class="rating-item">
+              <input
+                type="radio"
+                name="satisfaction"
+                value="5"
+              />
+              <span>5</span>
+            </label>
+
+          </div>
+
+          <div
+            style="
+              display:flex;
+              justify-content:space-between;
+              margin-top:5px;
+              color:#888;
+              font-size:10px;
+            "
+          >
+            <span>不満</span>
+            <span>非常に満足</span>
+          </div>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="satisfaction"
+        >
+          満足度を選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- REQUEST -->
+
+      <div class="section">
+
+        <div class="section-title">
+          今後について
+
+          <span class="limit">
+            任意
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="request"
+          >
+            今後、コミュニティに追加してほしいもの・改善してほしいことはありますか？
+          </label>
+
+          <textarea
+            id="request"
+            name="request"
+            placeholder="コンテンツ、企画、機能など自由に教えてください。"
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- PERMISSION -->
+
+      <div class="section">
+
+        <div class="section-title">
+          回答内容の掲載について
+
+          <span class="req">
+            必須
+          </span>
+        </div>
+
+        <div class="section-sub">
+          今回いただいた「参加前の状況」「変化・成果」「感想」などを、今後コミュニティのLP・SNS等で参加者の声として紹介させていただく場合があります。
+        </div>
+
+        <div class="checks one-column">
+
+          <label class="check-item">
+
+            <input
+              type="radio"
+              name="publishPermission"
+              value="Discordプロフィール名で掲載OK"
+            />
+
+            Discordプロフィール名での掲載OK
+
+          </label>
+
+
+          <label class="check-item">
+
+            <input
+              type="radio"
+              name="publishPermission"
+              value="匿名なら掲載OK"
+            />
+
+            匿名なら掲載OK
+
+          </label>
+
+
+          <label class="check-item">
+
+            <input
+              type="radio"
+              name="publishPermission"
+              value="掲載不可"
+            />
+
+            外部への掲載は不可
+
+          </label>
+
+        </div>
+
+
+        <div
+          class="error"
+          data-error-for="publishPermission"
+        >
+          掲載可否を選択してください。
+        </div>
+
+      </div>
+
+
+      <!-- FREE MESSAGE -->
+
+      <div class="section">
+
+        <div class="section-title">
+          最後に
+
+          <span class="limit">
+            任意
+          </span>
+        </div>
+
+        <div class="field">
+
+          <label
+            class="inline-label"
+            for="freeMessage"
+          >
+            カネイさん・運営に伝えておきたいこと
+          </label>
+
+          <textarea
+            id="freeMessage"
+            name="freeMessage"
+            placeholder="ご要望・感想など、自由にご記入ください。"
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <div class="actions">
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          アンケートを送信
+        </button>
+
+        <div
+          id="formMsg"
+          class="hint"
+        ></div>
+
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer></footer>
+
+</div>
+
+
+<!-- EMAIL JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+<script>
+(() => {
+
+  /* ==========================================
+     CONFIG
+  ========================================== */
+
+  const CONFIG = {
+
+    EMAILJS_PUBLIC_KEY:
+      "QedlQxUXH2yDJJvjU",
+
+    EMAILJS_SERVICE_ID:
+      "service_sgac4or",
+
+    EMAILJS_TEMPLATE_ID:
+      "template_hmmrh9t",
+
+    GOOGLE_SCRIPT_URL:
+      "https://script.google.com/macros/s/AKfycbwsuNoT_UbGZ3DiQLE6Mv-IoJTHaP4DzlQh3tTeCbgXGmw6_OuNK1eJTeZrgfB_ke3Q/exec",
+
+    MAX_SELECT:3
+
+  };
+
+
+  /* ==========================================
+     ELEMENTS
+  ========================================== */
+
+  const form =
+    document.getElementById("surveyForm");
+
+  const msg =
+    document.getElementById("formMsg");
+
+  const hero =
+    document.getElementById("heroSection");
+
+  const thankYouStage =
+    document.getElementById("thankYouStage");
+
+
+  /* ==========================================
+     HELPERS
+  ========================================== */
+
+  const showError = (name,on) => {
+
+    const el =
+      document.querySelector(
+        `[data-error-for="${name}"]`
+      );
+
+    if(el){
+      el.style.display =
+        on ? "block" : "none";
+    }
+
+  };
+
+
+  const getCheckedValues = name => {
+
+    return [
+      ...document.querySelectorAll(
+        `input[name="${name}"]:checked`
+      )
+    ].map(el => el.value);
+
+  };
+
+
+  const getRadioValue = name => {
+
+    const el =
+      document.querySelector(
+        `input[name="${name}"]:checked`
+      );
+
+    return el ? el.value : "";
+
+  };
+
+
+  /* ==========================================
+     OTHER FIELD
+  ========================================== */
+
+  const bindSelectOther = (
+    selectId,
+    wrapId,
+    inputId
+  ) => {
+
+    const select =
+      document.getElementById(selectId);
+
+    const wrap =
+      document.getElementById(wrapId);
+
+    const input =
+      document.getElementById(inputId);
+
+    if(!select || !wrap || !input){
+      return;
+    }
+
+    const sync = () => {
+
+      const show =
+        select.value === "その他";
+
+      wrap.style.display =
+        show ? "grid" : "none";
+
+      if(!show){
+        input.value = "";
+      }
+
+    };
+
+    select.addEventListener(
+      "change",
+      sync
+    );
+
+    sync();
+
+  };
+
+
+  const bindCheckboxOther = (
+    checkboxId,
+    wrapId,
+    inputId
+  ) => {
+
+    const checkbox =
+      document.getElementById(
+        checkboxId
+      );
+
+    const wrap =
+      document.getElementById(
+        wrapId
+      );
+
+    const input =
+      document.getElementById(
+        inputId
+      );
+
+    if(
+      !checkbox ||
+      !wrap ||
+      !input
+    ){
+      return;
+    }
+
+    const sync = () => {
+
+      wrap.style.display =
+        checkbox.checked
+          ? "grid"
+          : "none";
+
+      if(!checkbox.checked){
+        input.value = "";
+      }
+
+    };
+
+    checkbox.addEventListener(
+      "change",
+      sync
+    );
+
+    sync();
+
+  };
+
+
+  bindSelectOther(
+    "currentJob",
+    "currentJobOtherWrap",
+    "currentJobOther"
+  );
+
+  bindSelectOther(
+    "beforeJob",
+    "beforeJobOtherWrap",
+    "beforeJobOther"
+  );
+
+  bindCheckboxOther(
+    "beforeProblemOtherChk",
+    "beforeProblemOtherWrap",
+    "beforeProblemOther"
+  );
+
+  bindCheckboxOther(
+    "joinReasonOtherChk",
+    "joinReasonOtherWrap",
+    "joinReasonOther"
+  );
+
+  bindCheckboxOther(
+    "changeOtherChk",
+    "changeOtherWrap",
+    "changeOther"
+  );
+
+
+  /* ==========================================
+     MAX 3
+  ========================================== */
+
+  const bindLimit = name => {
+
+    const items = [
+      ...document.querySelectorAll(
+        `input[name="${name}"]`
+      )
+    ];
+
+    items.forEach(el => {
+
+      el.addEventListener(
+        "change",
+        () => {
+
+          const checked =
+            items.filter(
+              item => item.checked
+            );
+
+          if(
+            checked.length >
+            CONFIG.MAX_SELECT
+          ){
+
+            el.checked = false;
+
+            alert(
+              "選択は3つまでです。"
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+  };
+
+
+  bindLimit("beforeProblems");
+  bindLimit("joinReasons");
+
+
+  /* ==========================================
+     SPECIAL CHANGE LOGIC
+  ========================================== */
+
+  const changeInputs = [
+    ...document.querySelectorAll(
+      'input[name="changes"]'
+    )
+  ];
+
+  changeInputs.forEach(el => {
+
+    el.addEventListener(
+      "change",
+      () => {
+
+        if(
+          el.value ===
+          "特に変化はない" &&
+          el.checked
+        ){
+
+          changeInputs.forEach(other => {
+
+            if(
+              other !== el
+            ){
+              other.checked = false;
+            }
+
+          });
+
+        }else if(el.checked){
+
+          const none =
+            changeInputs.find(
+              item =>
+                item.value ===
+                "特に変化はない"
+            );
+
+          if(none){
+            none.checked = false;
+          }
+
+        }
+
+      }
+    );
+
+  });
+
+
+  /* ==========================================
+     VALIDATION
+  ========================================== */
+
+  const validateAll = () => {
+
+    let ok = true;
+
+    [
+      "basic",
+      "current",
+      "before",
+      "beforeProblems",
+      "joinReasons",
+      "changes",
+      "specificChange",
+      "mostHelpful",
+      "satisfaction",
+      "publishPermission"
+    ].forEach(
+      key =>
+        showError(key,false)
+    );
+
+
+    /* BASIC */
+
+    if(
+      !form.profileName.value.trim() ||
+      !form.sex.value ||
+      !form.age.value
+    ){
+
+      showError(
+        "basic",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* CURRENT */
+
+    if(
+      !form.currentJob.value ||
+      !form.membershipPeriod.value
+    ){
+
+      showError(
+        "current",
+        true
+      );
+
+      ok = false;
+
+    }
+
+    if(
+      form.currentJob.value ===
+      "その他" &&
+      !form.currentJobOther.value.trim()
+    ){
+
+      showError(
+        "current",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* BEFORE */
+
+    if(
+      !form.beforeJob.value ||
+      !form.beforeSituation.value.trim()
+    ){
+
+      showError(
+        "before",
+        true
+      );
+
+      ok = false;
+
+    }
+
+    if(
+      form.beforeJob.value ===
+      "その他" &&
+      !form.beforeJobOther.value.trim()
+    ){
+
+      showError(
+        "before",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* BEFORE PROBLEMS */
+
+    const beforeProblems =
+      getCheckedValues(
+        "beforeProblems"
+      );
+
+    if(
+      beforeProblems.length < 1 ||
+      beforeProblems.length >
+        CONFIG.MAX_SELECT
+    ){
+
+      showError(
+        "beforeProblems",
+        true
+      );
+
+      ok = false;
+
+    }
+
+    if(
+      document
+        .getElementById(
+          "beforeProblemOtherChk"
+        )
+        .checked &&
+      !form
+        .beforeProblemOther
+        .value
+        .trim()
+    ){
+
+      showError(
+        "beforeProblems",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* JOIN */
+
+    const joinReasons =
+      getCheckedValues(
+        "joinReasons"
+      );
+
+    if(
+      joinReasons.length < 1 ||
+      joinReasons.length >
+        CONFIG.MAX_SELECT
+    ){
+
+      showError(
+        "joinReasons",
+        true
+      );
+
+      ok = false;
+
+    }
+
+    if(
+      document
+        .getElementById(
+          "joinReasonOtherChk"
+        )
+        .checked &&
+      !form
+        .joinReasonOther
+        .value
+        .trim()
+    ){
+
+      showError(
+        "joinReasons",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* CHANGES */
+
+    const changes =
+      getCheckedValues(
+        "changes"
+      );
+
+    if(
+      changes.length < 1
+    ){
+
+      showError(
+        "changes",
+        true
+      );
+
+      ok = false;
+
+    }
+
+    if(
+      document
+        .getElementById(
+          "changeOtherChk"
+        )
+        .checked &&
+      !form
+        .changeOther
+        .value
+        .trim()
+    ){
+
+      showError(
+        "changes",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* SPECIFIC CHANGE */
+
+    if(
+      !form
+        .specificChange
+        .value
+        .trim()
+    ){
+
+      showError(
+        "specificChange",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* HELPFUL */
+
+    if(
+      !form
+        .mostHelpful
+        .value
+        .trim()
+    ){
+
+      showError(
+        "mostHelpful",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* SATISFACTION */
+
+    if(
+      !getRadioValue(
+        "satisfaction"
+      )
+    ){
+
+      showError(
+        "satisfaction",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    /* PERMISSION */
+
+    if(
+      !getRadioValue(
+        "publishPermission"
+      )
+    ){
+
+      showError(
+        "publishPermission",
+        true
+      );
+
+      ok = false;
+
+    }
+
+
+    return ok;
+
+  };
+
+
+  /* ==========================================
+     OTHER TEXT MERGE
+  ========================================== */
+
+  const mergeOther = (
+    values,
+    checkboxId,
+    textId
+  ) => {
+
+    const checkbox =
+      document.getElementById(
+        checkboxId
+      );
+
+    const text =
+      document.getElementById(
+        textId
+      );
+
+    let result =
+      values.filter(
+        value =>
+          value !== "その他"
+      );
+
+    if(
+      checkbox &&
+      checkbox.checked &&
+      text &&
+      text.value.trim()
+    ){
+
+      result.push(
+        `その他：${text.value.trim()}`
+      );
+
+    }
+
+    return result.join(" / ");
+
+  };
+
+
+  /* ==========================================
+     BUILD DATA
+  ========================================== */
+
+  const buildTemplateParams = () => {
+
+    const beforeProblems =
+      getCheckedValues(
+        "beforeProblems"
+      );
+
+    const joinReasons =
+      getCheckedValues(
+        "joinReasons"
+      );
+
+    const changes =
+      getCheckedValues(
+        "changes"
+      );
+
+
+    const currentJob =
+      form.currentJob.value ===
+      "その他"
+        ?
+        `その他：${form.currentJobOther.value.trim()}`
+        :
+        form.currentJob.value;
+
+
+    const beforeJob =
+      form.beforeJob.value ===
+      "その他"
+        ?
+        `その他：${form.beforeJobOther.value.trim()}`
+        :
+        form.beforeJob.value;
+
+
+    return {
+
+      form_type:
+        "KANEIコミュニティ既存参加者アンケート",
+
+
+      /* ATTRIBUTE */
+
+      profile_name:
+        form.profileName.value.trim(),
+
+      sex:
+        form.sex.value,
+
+      age:
+        form.age.value,
+
+      current_job:
+        currentJob,
+
+      membership_period:
+        form.membershipPeriod.value,
+
+
+      /* BEFORE */
+
+      before_job:
+        beforeJob,
+
+      before_situation:
+        form.beforeSituation.value.trim(),
+
+      before_problems:
+        mergeOther(
+          beforeProblems,
+          "beforeProblemOtherChk",
+          "beforeProblemOther"
+        ),
+
+
+      /* PURCHASE MOTIVE */
+
+      join_reasons:
+        mergeOther(
+          joinReasons,
+          "joinReasonOtherChk",
+          "joinReasonOther"
+        ),
+
+      before_concern:
+        form.beforeConcern.value.trim(),
+
+
+      /* AFTER */
+
+      changes:
+        mergeOther(
+          changes,
+          "changeOtherChk",
+          "changeOther"
+        ),
+
+      specific_change:
+        form.specificChange.value.trim(),
+
+      numeric_result:
+        form.numericResult.value.trim(),
+
+
+      /* VALUE */
+
+      most_helpful:
+        form.mostHelpful.value.trim(),
+
+      recommend_for:
+        form.recommendFor.value.trim(),
+
+      satisfaction:
+        getRadioValue(
+          "satisfaction"
+        ),
+
+
+      /* FUTURE */
+
+      request:
+        form.request.value.trim(),
+
+
+      /* PERMISSION */
+
+      publish_permission:
+        getRadioValue(
+          "publishPermission"
+        ),
+
+
+      /* FREE */
+
+      free_message:
+        form.freeMessage.value.trim(),
+
+
+      /* META */
+
+      submitted_at:
+        new Date()
+          .toLocaleString(
+            "ja-JP"
+          )
+
+    };
+
+  };
+
+
+  /* ==========================================
+     GOOGLE SHEETS
+  ========================================== */
+
+  const saveToGoogleSheets =
+    async params => {
+
+      if(
+        !CONFIG.GOOGLE_SCRIPT_URL ||
+        !CONFIG.GOOGLE_SCRIPT_URL.includes(
+          "script.google.com/macros/s/"
+        )
+      ){
+
+        throw new Error(
+          "Google Apps Script URLが設定されていません。"
+        );
+
+      }
+
+
+      const body =
+        new URLSearchParams();
+
+
+      Object.entries(params)
+        .forEach(
+          ([key,value]) => {
+
+            body.append(
+              key,
+              value == null
+                ? ""
+                : String(value)
+            );
+
+          }
+        );
+
+
+      await fetch(
+        CONFIG.GOOGLE_SCRIPT_URL,
+        {
+
+          method:"POST",
+
+          mode:"no-cors",
+
+          headers:{
+            "Content-Type":
+              "application/x-www-form-urlencoded;charset=UTF-8"
+          },
+
+          body
+
+        }
+      );
+
+    };
+
+
+  /* ==========================================
+     THANK YOU
+  ========================================== */
+
+  const showThankYouView = () => {
+
+    hero.style.display =
+      "none";
+
+    form.style.display =
+      "none";
+
+    thankYouStage.style.display =
+      "flex";
+
+    window.scrollTo({
+      top:0,
+      behavior:"auto"
+    });
+
+  };
+
+
+  /* ==========================================
+     EMAILJS
+  ========================================== */
+
+  const initEmailJs = () => {
+
+    if(
+      CONFIG.EMAILJS_PUBLIC_KEY &&
+      window.emailjs
+    ){
+
+      emailjs.init({
+        publicKey:
+          CONFIG.EMAILJS_PUBLIC_KEY
+      });
+
+      return true;
+
+    }
+
+    return false;
+
+  };
+
+
+  const emailReady =
+    initEmailJs();
+
+
+  /* ==========================================
+     SUBMIT
+  ========================================== */
+
+  form.addEventListener(
+    "submit",
+    async event => {
+
+      event.preventDefault();
+
+      msg.textContent = "";
+
+
+      if(!validateAll()){
+
+        const firstError =
+          document.querySelector(
+            '.error[style*="block"]'
+          );
+
+        if(firstError){
+
+          firstError.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+
+        }
+
+        return;
+
+      }
+
+
+      const submitBtn =
+        form.querySelector(
+          'button[type="submit"]'
+        );
+
+
+      submitBtn.disabled = true;
+
+      msg.textContent =
+        "送信中です…";
+
+
+      try{
+
+        const templateParams =
+          buildTemplateParams();
+
+
+        const tasks = [
+          saveToGoogleSheets(
+            templateParams
+          )
+        ];
+
+
+        if(emailReady){
+
+          tasks.push(
+
+            emailjs.send(
+
+              CONFIG.EMAILJS_SERVICE_ID,
+
+              CONFIG.EMAILJS_TEMPLATE_ID,
+
+              templateParams
+
+            )
+
+          );
+
+        }
+
+
+        const results =
+          await Promise.allSettled(
+            tasks
+          );
+
+
+        const sheetResult =
+          results[0];
+
+
+        if(
+          sheetResult.status ===
+          "rejected"
+        ){
+
+          console.error(
+            "Google Sheets保存エラー",
+            sheetResult.reason
+          );
+
+          throw new Error(
+            "回答データを保存できませんでした。"
+          );
+
+        }
+
+
+        if(
+          results.length > 1 &&
+          results[1].status ===
+          "rejected"
+        ){
+
+          console.warn(
+            "メール通知のみ失敗しました。",
+            results[1].reason
+          );
+
+        }
+
+
+        msg.textContent =
+          "送信が完了しました。";
+
+
+        showThankYouView();
+
+
+      }catch(error){
+
+        console.error(error);
+
+        msg.textContent =
+          "送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。";
+
+        alert(
+          "送信に失敗しました。もう一度送信ボタンを押してください。"
+        );
+
+      }finally{
+
+        submitBtn.disabled =
+          false;
+
+      }
+
+    }
+  );
+
+
+  /* ==========================================
+     CLEAR ERRORS ON INPUT
+  ========================================== */
+
+  const clearOnInput = (
+    selector,
+    errorName
+  ) => {
+
+    document
+      .querySelectorAll(selector)
+      .forEach(el => {
+
+        const eventName =
+          el.type === "checkbox" ||
+          el.type === "radio" ||
+          el.tagName === "SELECT"
+            ? "change"
+            : "input";
+
+
+        el.addEventListener(
+          eventName,
+          () =>
+            showError(
+              errorName,
+              false
+            )
+        );
+
+      });
+
+  };
+
+
+  clearOnInput(
+    "#profileName,#sex,#age",
+    "basic"
+  );
+
+  clearOnInput(
+    "#currentJob,#currentJobOther,#membershipPeriod",
+    "current"
+  );
+
+  clearOnInput(
+    "#beforeJob,#beforeJobOther,#beforeSituation",
+    "before"
+  );
+
+  clearOnInput(
+    'input[name="beforeProblems"],#beforeProblemOther',
+    "beforeProblems"
+  );
+
+  clearOnInput(
+    'input[name="joinReasons"],#joinReasonOther',
+    "joinReasons"
+  );
+
+  clearOnInput(
+    'input[name="changes"],#changeOther',
+    "changes"
+  );
+
+  clearOnInput(
+    "#specificChange",
+    "specificChange"
+  );
+
+  clearOnInput(
+    "#mostHelpful",
+    "mostHelpful"
+  );
+
+  clearOnInput(
+    'input[name="satisfaction"]',
+    "satisfaction"
+  );
+
+  clearOnInput(
+    'input[name="publishPermission"]',
+    "publishPermission"
+  );
+
+})();
+</script>
+
+</body>
+</html>
